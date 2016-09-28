@@ -37,12 +37,10 @@ public class MessageReceiver extends Thread{
                 if(instruction.length == 2) {
                     String output = inputGetter.getNextLineWithNoRestrictions("");
                     pw.println(output);
-                    System.out.println("Message sent: " + output);
                     pw.flush();
                 }else{
                     String output = inputGetter.getNextLineWithNoRestrictions(instruction[2]);
                     pw.println(output);
-                    System.out.println("Message sent: " + output);
                     pw.flush();
                 }
             }else if(instruction[1].equalsIgnoreCase("MakeChoice")) { // layout: Request~MakeChoice~<ignore case (true/false)>~<message>~<choice 1>~[choice 2]~...
@@ -53,12 +51,10 @@ public class MessageReceiver extends Thread{
                 if(instruction[2].equalsIgnoreCase("false")) {
                     String output = inputGetter.getRestrictedChoice(instruction[3], choices);
                     pw.println(output);
-                    System.out.println("Message sent: " + output);
                     pw.flush();
                 }else{
                     String output = inputGetter.getRestrictedChoiceIgnoreCase(instruction[3], choices);
                     pw.println(output);
-                    System.out.println("Message sent: " + output);
                     pw.flush();
                 }
             }
